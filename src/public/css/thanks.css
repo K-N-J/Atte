@@ -1,0 +1,58 @@
+@media screen and (max-width: 768px) {
+  .body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+}
+
+.header {
+  background: #fff;
+}
+
+.header__inner {
+  margin: 0 auto;
+  padding: 20px 15px;
+  max-width: 1230px;
+}
+
+.header__utilities {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo {
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.thanks__form {
+  margin: 0 auto;
+  padding: 30px 15px;
+  max-width: 1230px;
+}
+
+.thanks__text {
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.thanks__button {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.form__button {
+  padding: 10px;
+  width: 30%;
+  height: 50px;
+  border: none;
+  border-radius: 3px;
+  background: #000;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+}
