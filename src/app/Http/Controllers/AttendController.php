@@ -5,13 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Attend;
+use Carbon\Carbon;
+
 
 
 class AttendController extends Controller
 {
     public function attendStart()
     {
-        $existingAttend = Attend::where('user_id', Auth::id())->whereNull('attend_end')->exists();
+        $existingAttend = Attend::where('user_id', Auth::id())
+            ->whereDate('attend_start', Carbon::today()) // 当日の出勤情報を取得
+            ->whereNull('attend_end')
+            ->exists();
 
         if ($existingAttend) {
             return redirect()->route('stamp')->with('error', '既に出勤されています');

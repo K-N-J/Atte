@@ -23,7 +23,7 @@
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <a class="header__nav__link" href="/stamp">ホーム</a>
-                                <a class="header__nav__link" href="/user">ユーザー</a>
+                                <a class="header__nav__link" href="/userAll">ユーザー一覧</a>
                                 <a class="header__nav__link" href="/date">日付一覧</a>
                                 <a class="header__nav__link" href="{{ route('logout') }}"
                                     onclick="event.preventDefault(); this.closest('form').submit();">

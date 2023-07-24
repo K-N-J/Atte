@@ -35,14 +35,33 @@ class UserController extends Controller
             ->orderBy('date', 'desc')
             ->paginate(5, ['*'], 'page', request()->query('page'));
 
-
-
-
-        //dd($attends);
-
         $attends->appends(['date' => $date])->links();
 
         return view('user', compact('attends', 'prev_date', 'next_date', 'date'));
+    }
+
+    public function userDetails($userId)
+    {
+      $date = request()->query('date', date('Y-m-d'));
+      $prev_date = Carbon::parse($date)->subDay()->toDateString();
+      $next_date = Carbon::parse($date)->addDay()->toDateString();
+
+      $attends = User::select('users.name',
+          'attends.attend_start', 'attends.attend_end', 'attends.created_at',
+          DB::raw('SEC_TO_TIME(SUM(TIME_TO_SEC(rests.rest_end) - TIME_TO_SEC(rests.rest_start))) AS rest_time'),
+          DB::raw('SEC_TO_TIME(TIME_TO_SEC(attends.attend_end) - TIME_TO_SEC(attends.attend_start) - SUM(TIME_TO_SEC(CASE WHEN rests.rest_end IS NULL THEN 0 ELSE rests.rest_end END) - TIME_TO_SEC(CASE WHEN rests.rest_start IS NULL THEN 0 ELSE rests.rest_start END))) AS work_time'),
+          DB::raw("DATE_FORMAT(attends.created_at, '%Y-%m-%d') as date"))
+          ->join('attends', 'users.id', '=', 'attends.user_id')
+          ->leftJoin('rests', 'attends.id', '=', 'rests.attend_id')
+          ->where('users.id', $userId)
+          ->whereDate('attends.created_at', $date)
+          ->groupBy('users.name', 'attends.attend_start', 'attends.attend_end', 'attends.created_at', 'date')
+          ->orderBy('date', 'desc')
+          ->paginate(5, ['*'], 'page', request()->query('page'));
+
+      $attends->appends(['date' => $date, 'userId' => $userId])->links();
+
+      return view('user', compact('attends', 'prev_date', 'next_date', 'date'));
     }
 
     public function attend(Request $request)

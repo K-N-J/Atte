@@ -59,6 +59,18 @@ table {
   border-collapse: collapse;
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination .page-item {
+  display: inline-block;
+}
+
+.pagination .page-link {
+  padding: 0.5rem;
+}
 .footer {
   text-align: center;
 }

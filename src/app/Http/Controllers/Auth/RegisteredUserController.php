@@ -50,7 +50,7 @@ class RegisteredUserController extends Controller
         Auth::login($user);
 
         $error=null;
-        return view('stamp', compact('error'));
+        return view('emailCheck', compact('error'));
 
         //return redirect(RouteServiceProvider::HOME);
     }
