@@ -23,6 +23,7 @@
 <main>
 <div class="thanks__form">
         <div class="thanks__text">
+            <h3>お疲れ様でした</h3>
             <h3>ログアウトしました</h3>
         </div>
         <div class="thanks__button">

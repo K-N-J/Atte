@@ -72,7 +72,7 @@
                 <div class="account__register">
                     <span class="subtext">アカウントをお持ちでない方はこちらから</span><br />
                     @if (Route::has('password.request'))
-                        <a class="forgot__password__text" href="{{ route('password.request') }}">
+                        <a class="forgot__password__text" href="{{ route('register') }}">
                             {{ '会員登録' }}
                         </a>
                     @endif

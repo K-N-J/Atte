@@ -7,12 +7,12 @@
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">
-            {{ __('ご登録いただきありがとうございます! 先ほどメールでお送りしたリンクをクリックし、メールアドレスをご確認下さい。 また、メールが届かない場合は、別のメールをお送りいたします。') }}
+            {{ 'ご登録いただきありがとうございます! 先ほどメールでお送りしたリンクをクリックし、メールアドレスをご確認下さい。 また、メールが届かない場合は、別のメールをお送りいたします。'}}
         </div>
 
         @if (session('status') == 'verification-link-sent')
             <div class="mb-4 font-medium text-sm text-green-600">
-                {{ __('新しい確認リンクが、登録時に指定した電子メール アドレスに送信されました。') }}
+                {{'新しい確認リンクが、登録時に指定した電子メール アドレスに送信されました。'}}
             </div>
         @endif
 
@@ -22,7 +22,7 @@
 
                 <div>
                     <x-button>
-                        {{ __('確認メールを再送') }}
+                        {{ '確認メールを再送'}}
                     </x-button>
                 </div>
             </form>
@@ -31,7 +31,7 @@
                 @csrf
 
                 <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900">
-                    {{ __('ログアウト') }}
+                    {{'ログアウト' }}
                 </button>
             </form>
         </div>

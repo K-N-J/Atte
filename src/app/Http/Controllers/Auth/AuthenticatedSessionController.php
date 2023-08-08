@@ -66,6 +66,8 @@ class AuthenticatedSessionController extends Controller
             //return redirect()->intended(RouteServiceProvider::HOME);
         }
 
+        $request->session()->put('is_logged_in', true);
+
         return back()->withErrors([
             'email' => 'The provided credentials do not match our records.',
         ]);
@@ -85,6 +87,8 @@ class AuthenticatedSessionController extends Controller
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();
+
+        $request->session()->forget('is_logged_in');
 
         return redirect('/thanks');
     }

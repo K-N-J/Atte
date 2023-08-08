@@ -24,7 +24,7 @@
 <div class="thanks__form">
         <div class="thanks__text">
             <h3>ご登録ありがとうございます。<br/>
-              メールを送信しました。送信されたメールからログイン画面に行き、ログインを行なって下さい。</h3>
+                メールを送信しました。送信されたメールからログイン画面に行き、<br/>ログインを行なって下さい。</h3>
         </div>
         <div class="thanks__button">
             <a href="{{ route('login') }}" class="form__button">ログインページへ</a>

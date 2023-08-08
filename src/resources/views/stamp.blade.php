@@ -11,6 +11,7 @@
 </head>
 
 <body>
+
     <header class="header">
         <div class="header__inner">
             <div class="header__utilities">
@@ -61,9 +62,8 @@
                 <div class="attendstart">
                     <form method="POST" action="{{ route('attend-start') }}">
                         @csrf
-                        <button type="submit" class="attendstart__button">
-                            <span class="attendstart__button__text">
-                                {{ '勤務開始' }}</span>
+                        <button type="submit" class="attendstart__button" id="attend-button">
+                            <span class="attendstart__button__text">{{ '勤務開始' }}</span>
                         </button>
                     </form>
                 </div>
@@ -71,9 +71,8 @@
                 <div class="attendend">
                     <form method="POST" action="{{ route('attend-end') }}">
                         @csrf
-                        <button type="submit" class="attendend__button">
-                            <span class="attendend__button__text">
-                                {{ '勤務終了' }}</span>
+                        <button type="submit" class="attendend__button" id="attend-end-button">
+                            <span class="attendend__button__text">{{ '勤務終了' }}</span>
                         </button>
                     </form>
                 </div>
@@ -82,8 +81,7 @@
                     <form method="POST" action="{{ route('rest-start') }}">
                         @csrf
                         <button type="submit" class="reststart__button">
-                            <span class="reststart__button__text">
-                                {{ '休憩開始' }}</span>
+                            <span class="reststart__button__text">{{ '休憩開始' }}</span>
                         </button>
                     </form>
                 </div>
@@ -91,10 +89,8 @@
                 <div class="restend">
                     <form method="POST" action="{{ route('rest-end') }}">
                         @csrf
-
                         <button type="submit" class="restend__button">
-                            <span class="restend__button__text">
-                                {{ '休憩終了' }}</span>
+                            <span class="restend__button__text">{{ '休憩終了' }}</span>
                         </button>
                     </form>
                 </div>
